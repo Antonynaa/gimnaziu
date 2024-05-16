@@ -14,6 +14,6 @@
 
 @stop
 
-@section('js')
-@vite('resources/js/app.js')
+@section('js') 
+
 @stop
