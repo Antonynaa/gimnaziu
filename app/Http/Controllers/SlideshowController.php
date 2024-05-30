@@ -3,34 +3,47 @@
 namespace App\Http\Controllers;
 
 use App\Models\Slideshow;
-use Illuminate\Http\Request;
 use App\Http\Requests\StoreSlideshowRequest;
 use App\Http\Requests\UpdateSlideshowRequest;
+use App\Repositories\Slideshow\SlideshowRepository;
 
 class SlideshowController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct(
+        protected SlideshowRepository $slideshowRepository,
+    )
+    {}
+
+    /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    { 
+        $slideshows = resolve(SlideshowRepository::class)->getAll();
+        return view('backend.homepage.index')
+            ->with('slideshows', $slideshows);
     }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {
-        //
+    { 
+        return view('backend.homepage.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(StoreSlideshowRequest $request)
+    { 
+        $this->slideshowRepository->save($request->all());
+        return redirect()->route('slideshows.index');
     }
 
     /**
@@ -40,7 +53,6 @@ class SlideshowController extends Controller
     {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      */
@@ -48,15 +60,13 @@ class SlideshowController extends Controller
     {
         //
     }
-
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Slideshow $slideshow)
+    public function update(UpdateSlideshowRequest $request, Slideshow $slideshow)
     {
         //
     }
-
     /**
      * Remove the specified resource from storage.
      */

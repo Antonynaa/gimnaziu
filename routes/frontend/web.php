@@ -3,3 +3,7 @@
     use App\Http\Controllers\FrontendController;
     //Frontend
     Route::get('/', [FrontendController::class, 'index'])->name('home.index');
+    Route::get('/despre-noi', [FrontendController::class, 'about'])->name('about.index');
+    Route::get('/contacte', [FrontendController::class, 'contacts'])->name('contacts.index');
+    Route::get('/evenimente', [FrontendController::class, 'event'])->name('event.index'); 
+    Route::get('/echipa-noastra', [FrontendController::class, 'team'])->name('team.index');
