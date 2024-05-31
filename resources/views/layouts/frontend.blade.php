@@ -75,7 +75,7 @@
             <div class="row g-5 m-auto">
                 <div class="col-lg-4 col-md-6">
                     <h3 class="text-white mb-4">Aici ne găsiți</h3>
-                    <p class="mb-2">Creșa-Grădiniță Nr.4 „Zîmbetul” mun. Cahul</p>
+                    <p class="mb-2">R-ul Cahul, satul Holuboaia</p>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $settings->str??"" }}</p>
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $settings->tf??"" }}</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $settings->email??"" }}</p>

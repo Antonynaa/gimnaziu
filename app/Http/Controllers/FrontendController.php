@@ -30,10 +30,7 @@ class FrontendController extends Controller
     }
     public function event(){
         return view('frontend.event.event');
-    }
-    public function gallery(){
-        return view('frontend.gallery.gallery');
-    } 
+    }  
     public function team(){
         return view('frontend.team.team');
     }

@@ -58,20 +58,39 @@ class SlideshowController extends Controller
      */
     public function edit(Slideshow $slideshow)
     {
-        //
+        return view('backend.homepage.edit')
+            ->with('slideshow', $slideshow);
     }
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateSlideshowRequest $request, Slideshow $slideshow)
     {
-        //
+        $slideshow->title = $request->title;
+        $slideshow->description = $request->description;
+        if( $request->image === null ){
+            $slideshow->image = $slideshow->image;
+        }else{
+            if (file_exists(env('UPLOADS_SLIDESHOW') . $slideshow->image)) {
+                unlink(env('UPLOADS_SLIDESHOW') . $slideshow->image);
+            }
+            $extension  = $request->image->getClientOriginalExtension();
+            $fileName   = $request->image->getClientOriginalName();
+            $slideshow->image       = time().'.'.$extension;
+            $request->image->move(public_path(env('UPLOADS_SLIDESHOW')), $slideshow->image);
+        }
+        $slideshow->save();
+        return redirect()->route('slideshows.index');
     }
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(Slideshow $slideshow)
     {
-        //
+        if (file_exists(env('UPLOADS_SLIDESHOW') . $slideshow->image)) {
+            unlink(env('UPLOADS_SLIDESHOW') . $slideshow->image);
+        }
+        $slideshow->delete();
+        return redirect()->route('slideshows.index');
     }
 }

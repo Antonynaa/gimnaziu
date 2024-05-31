@@ -307,40 +307,29 @@ return [
 
         // Sidebar items:
         [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ], 
-        ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-user',
+            'header' => 'SETARI PAGINI'
         ],
         [
-            'text' => 'change_password',
-            'url' => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-        [
-            'text'      => 'Home page',
-            'icon'      => 'fas fa-home',
-            'icon_color' => 'red',
+            'text' => 'Pagina Acasă',
+            'icon'      => 'fas fa-home', 
             'submenu'   => [
                 [
                     'text' => 'Slideshow',
                     'url'  => 'slideshows',
+                    'icon' => 'fas fa-image',
                     'icon_color' => 'black',
                 ],
             ],
         ],
         [
-            'text' => 'multilevel',
-            'icon' => 'fas fa-fw fa-share',
+            'text' => 'Activități',
+            'icon' => 'fas fa-fh-large',
             'submenu' => [
                 [
-                    'text' => 'level_one',
-                    'url' => '#',
+                    'text' => 'Evenimente',
+                    'url' => 'events',
+                    'icon'      => 'fas fa-calendar-week',
+                    'icon_color' => 'black',
                 ],
                 [
                     'text' => 'level_one',
@@ -387,6 +376,17 @@ return [
             'text' => 'information',
             'icon_color' => 'cyan',
             'url' => '#',
+        ],
+        ['header' => 'account_settings'],
+        [
+            'text' => 'profile',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'change_password',
+            'url'  => 'admin/settings',
+            'icon' => 'fas fa-fw fa-lock',
         ],
     ],
 
