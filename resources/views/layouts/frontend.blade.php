@@ -2,11 +2,11 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
-    <title>{{ config('app.name', 'Zambetul')}} @yield('title')</title>
+    <title>{{ config('app.name', 'Gimnaziu')}} @yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
           content="@yield('meta_description', config('app.name', 'Gimnaziu'))">
-    <meta name="keywords" content="@yield('meta_keywords', config('app.name', 'Zambetul'))">
+    <meta name="keywords" content="@yield('meta_keywords', config('app.name', 'Gimnaziu'))">
     @yield('meta')
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -46,24 +46,15 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto">
-                <a href="{{ route('home.index')}}" class="nav-item nav-link {{ $home??"" }}">Acasă</a>
-                <div class="nav-item dropdown dropdown-link">
-                    <a href="#" class="nav-link dropdown-toggle  {{ $about??"" }}" data-bs-toggle="dropdown" aria-expanded="false">Despre noi</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                        <a href="{{ route('about.index')}}"         class="dropdown-item">Despre noi</a> 
-                    </div>
-                </div>
-                <a href="{{ route('team.index')}}" class="nav-item nav-link {{ $team??"" }}">Echipa noastră</a>
-                <div class="nav-item dropdown dropdown-link">
-                    <a href="#" class="nav-link dropdown-toggle {{ $eventLink??"" }}" data-bs-toggle="dropdown" aria-expanded="false">Activități</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                        <a href="{{ route('event.index')}}" class="dropdown-item">Evenimente</a> 
-                    </div>
-                </div> 
+                <a href="{{ route('home.index')}}" class="nav-item nav-link {{ $home??"" }}">Acasă</a>    
+                <a href="{{ route('about.index')}}"class="nav-item nav-link {{ $about??"" }}">Despre noi</a> 
+                <a href="{{ route('team.index')}}" class="nav-item nav-link {{ $team??"" }}">Echipa noastră</a> 
+                <a href="{{ route('event.index')}}" class="nav-item nav-link {{ $event??"" }}">Evenimente</a> 
                 <a href="{{ route('contacts.index')}}" class="nav-item nav-link {{ $contacts??"" }}">Contacte</a>
+                </div> 
             </div>
             {{-- <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Join Us<i class="fa fa-arrow-right ms-3"></i></a> --}}
-        </div>
+        </div> 
     </nav>
     <!-- Navbar End -->
 
@@ -73,7 +64,7 @@
     <div class="container-fluid bg-dark text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5 m-auto">
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Aici ne găsiți</h3>
                     <p class="mb-2">R-ul Cahul, satul Holuboaia</p>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $settings->str??"" }}</p>

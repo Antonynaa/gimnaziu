@@ -3,7 +3,7 @@
 @section('title', env('APP_NAME', 'AdminLTE'))
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Panoul de administare</h1>
 @stop
 
 @section('content')
