@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use App\Models\EventCategory;
 use Illuminate\Http\Request; 
 use App\Http\Requests\Event\StoreEventRequest;
 use App\Http\Requests\Event\UpdateEventRequest;
@@ -22,7 +23,9 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $eventCategories = EventCategory::all();
+        return view('backend.events.create')
+            ->with('eventCategories', $eventCategories);
     }
 
     /**

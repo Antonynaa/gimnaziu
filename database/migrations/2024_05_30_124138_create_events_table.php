@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->string('image');
+            $table->text('body');
+            $table->string('autor');
+            $table->unsignedBigInteger('event_category_id');
+            $table->foreign('event_category_id')
+                  ->references('id')
+                  ->onDelete('cascade')
+                  ->on('event_categories');
             $table->timestamps();
         });
     }
