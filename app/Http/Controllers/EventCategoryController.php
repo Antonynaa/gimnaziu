@@ -32,6 +32,9 @@ class EventCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'nume' => 'required|unique:event_categories|max:255',
+        ]);
         EventCategory::create($request->all());
         return redirect()->route('event-category.index');
     }
@@ -67,8 +70,11 @@ class EventCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(EventCategory $eventCategory)
+    public function destroy(string $id)
     {
-        //
+        $category = EventCategory::findOrFail($id);
+        $category->delete();
+        return to_route('event-category.index')
+        ->with('success', 'Înregistrare ștearsă cu succes.');
     }
 }

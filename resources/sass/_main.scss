@@ -171,8 +171,7 @@ h6,
     width: 100%;
     height: 10px;
     top: 0;
-    left: 0;
-    background: url(../img/bg-header-top.png) center center repeat-x;
+    left: 0; 
     z-index: 1;
 }
 
@@ -180,8 +179,7 @@ h6,
 .page-header::after {
     height: 19px;
     top: auto;
-    bottom: 0;
-    background: url(../img/bg-header-bottom.png) center center repeat-x;
+    bottom: 0; 
 }
 
 @media (max-width: 768px) {
@@ -244,11 +242,11 @@ h6,
 }
 
 .bg-header {
-    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(../img/carousel-1.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(../img/uploads/slideshow/image.jpg) center center no-repeat;
 }
 
 .bg-header-team {
-    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(../img/carousel-2.jpg) center center no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, .2), rgba(0, 0, 0, .2)), url(../img/uploads/slideshow/image1.jpg) center center no-repeat;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {

@@ -298,7 +298,7 @@ return [
         [
             'type' => 'navbar-search',
             'text' => 'search',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
         [
             'type' => 'fullscreen-widget',
@@ -322,7 +322,7 @@ return [
             ],
         ],
         [
-            'text' => 'Activități',
+            'text' => 'Evenimente',
             'icon' => 'fas fa-fh-large',
             'submenu' => [
                 [
@@ -331,25 +331,68 @@ return [
                     'icon'      => 'fas fa-tags',
                 ],
                 [
-                    'text' => 'Evenimente',
+                    'text' => 'Articole',
                     'url'  => 'events',
                     'icon'      => 'fas fa-book',
                 ]
             ]
+        ], 
+        [
+            'text' => 'Echipa noastră', 
+            'icon' => 'fas fa-fw fa-user',
+            'submenu'   => [
+                [ 
+                    'text' => 'Gestioneaza',
+                    'url'  => 'teams',
+                    'icon'      => 'fas fa-user-plus', 
+                ],
+            ], 
+        ],
+        [
+            'text' => 'Cadrul legislativ', 
+            'icon' => 'fas fa-book-open',
+            'submenu'   => [
+                [ 
+                    'text' => 'Acte',
+                    'url'  => 'laws',
+                    'icon'      => 'fas fa-book-medical',
+                ],
+                [ 
+                    'text' => 'Categorii acte',
+                    'url'  => 'sections',
+                    'icon'      => 'fas fa-tags', 
+                ],
+            ], 
+        ],
+        [
+            'text'      => 'Meniul',
+            'icon'      => 'fas fa-utensils',
+            'submenu'   => [
+                [
+                    'text' => 'Gestioneaza',
+                    'url'  => 'menus',
+                    'icon'      => 'fas fa-plus',
+                    'icon_color' => 'yellow',
+                ],
+            ],
         ],
         ['header' => 'account_settings'],
-        [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+        [ 
+            'text' => 'Profilul gradinita',
+            'url'  => 'settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'text' => 'profile', 
+            'url'  => 'profile',
+            'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'change_password', 
+            'url'  => 'change_password',
             'icon' => 'fas fa-fw fa-lock',
         ],
-    ],
-
+    ],    
     /*
     |--------------------------------------------------------------------------
     | Menu Filters

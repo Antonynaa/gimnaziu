@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
+    public const LAST = 3;
     protected $fillable = [
         'title',
         'description',
@@ -16,4 +17,8 @@ class Event extends Model
         'autor',
         'event_category_id',
     ];
+    public function eventCategory(): BelongsTo
+    {
+        return $this->belongsTo(EventCategory::class);
+    }
 }
