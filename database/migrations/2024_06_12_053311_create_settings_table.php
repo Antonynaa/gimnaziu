@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('director');
-            $table->string('str');
-            $table->string('tf');
-            $table->string('email');
+            $table->string('director')->nullable();
+            $table->string('str')->nullable();
+            $table->string('tf')->nullable();
+            $table->string('email')->nullable();
             $table->string('twitter')->nullable();
             $table->string('facebook')->nullable();
             $table->string('youtube')->nullable();
