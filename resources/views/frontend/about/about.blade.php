@@ -1,6 +1,9 @@
 @extends('layouts.frontend')
 
 @section('title', '| Despre noi')
+@section('meta_description', 'Gimnaziu Iaroslav Gașek')
+@section('meta_keywords', 'Gimnaziu Iaroslav Gașek Holuboaia, școala Holuboaia, Iaroslav Gașek . (isset($settings) ? $settings->str : ')
+
 
 @php
     $about = "";

@@ -59,9 +59,14 @@
 @stop
 
 @section('css')
-
+<link rel="stylesheet" href="{{ asset('build/assets/app-04121afd.css') }}">
+<style>
+		.ck-editor__editable_inline{
+		  min-height: 500px;
+		}
+  </style>
 @stop
 
 @section('js')
-@vite(['resources/js/editor.js'])
+<script src="{{ asset('build/assets/app-13952320.js') }}" type="module"></script>
 @stop

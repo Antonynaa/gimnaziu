@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Gimnaziu'),
 
     /*
     |--------------------------------------------------------------------------
@@ -208,8 +208,7 @@ return [
     |
     */
 
-    'aliases' => Facade::defaultAliases()->merge([
-        // 'ExampleClass' => App\Example\ExampleClass::class,
+    'aliases' => Facade::defaultAliases()->merge([ 
         'Image' => Intervention\Image\Facades\Image::class
     ])->toArray(),
 

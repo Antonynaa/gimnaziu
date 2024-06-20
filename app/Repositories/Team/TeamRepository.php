@@ -26,16 +26,20 @@ class TeamRepository implements TeamInterface
 
     public function save($team)
     {
-        $data           = new Team();
-        $data->nume     = $team['nume'];
-        $data->functie  = $team['functie'];
-        if(isset($team['img'])){
-            $extension      = $team['img']->getClientOriginalExtension();
-            $data->img      = md5(bcrypt(date('l jS \of F Y h:i:s A'))).'.'.$extension;
-            Image::make($team['img'])
-                ->fit(100, 100)
-                ->save(public_path(env('UPLOADS_MEMBER')) . $data->img);
+        $data = new Team();
+        $data->nume = $team['nume'];
+        $data->functie = $team['functie'];
+
+        if (isset($team['img'])) {
+            $extension = $team['img']->getClientOriginalExtension();
+            $fileName = md5(bcrypt(date('l jS \of F Y h:i:s A'))) . '.' . $extension;
+            $data->img = $fileName;
+
+            // Salvează fișierul imagine în locația specificată
+            $destinationPath = public_path(env('UPLOADS_MEMBER'));
+            $team['img']->move($destinationPath, $fileName);
         }
+
         $data->save();
         return back();
     }

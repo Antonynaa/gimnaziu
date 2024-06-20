@@ -26,13 +26,22 @@ class LawRepository implements LawInterface
     public function save($law)
     {
         $extension = $law['file']->getClientOriginalExtension();
-        $fileName = $law['file']->getClientOriginalName();
+        $fileName = md5(bcrypt(date('l jS \of F Y h:i:s A'))) . '.' . $extension;
+
         $data = new Law();
         $data->nume = $law['nume'];
         $data->section_id = $law['section_id'];
-        $data->file = md5(bcrypt(date('l jS \of F Y h:i:s A'))) . '.' . $extension;
+        $data->file = $fileName;
         $data->save();
-        $law['file']->move(env('UPLOADS_LAW'), $data->file);
+
+        $destinationPath = public_path(env('UPLOADS_LAW'));
+         
+        if (!is_dir($destinationPath)) {
+            mkdir($destinationPath, 0777, true);
+        } 
+
+        $law['file']->move($destinationPath, $fileName);
+
         return back();
     }
 

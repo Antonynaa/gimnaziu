@@ -8,18 +8,14 @@
         $team = "active";
     }
 @endphp
+@section('meta_description', 'Gimnaziu Iaroslav Gașek')
+@section('meta_keywords', 'Gimnaziu Iaroslav Gașek Holuboaia, școala Holuboaia, Iaroslav Gașek . (isset($settings) ? $settings->str : ')
 
 @section('content')
 <!-- Page Header End -->
 <div class="container-xxl py-5 page-header bg-header-team position-relative mb-5">
         <div class="container py-5">
-            <h1 class="display-2 text-white animated slideInDown mb-4">Echipa noastra</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="{{ route('home.index') }}">Acasa</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Echipa noastra</li>
-                </ol>
-            </nav>
+            <h1 class="display-2 text-white animated slideInDown mb-4">Echipa noastra</h1> 
         </div>
     </div>
     <!-- Page Header End -->
@@ -32,7 +28,7 @@
             </div>
             <div class="row">
                 @forelse ($members as $member)
-                    <div class="col-lg-4 col-md-6 member-section">
+                    <div class="col-lg-4 col-md-6 member-section wow fadeInUp" data-wow-delay="0.1s">
                         <div class="row p-3">
                             <div class="bg-light text-dark p-2 d-flex align-items-center justify-content-center col">{{ $loop->iteration }}</div>
                             <div class="bg-light text-dark p-2 d-flex align-items-center justify-content-center col">{{ $member->nume }}</div>
@@ -40,7 +36,7 @@
                             <div class="bg-light text-dark p-2 d-flex align-items-center justify-content-center col">
                                 @if ($member->img !== null)
                                     <img src="{{ asset(env('UPLOADS_MEMBER').$member->img) }}" 
-                                        class="w-100 rounded-circle" 
+                                        class="w-100 square-img" 
                                         alt="{{ $member->nume }}">
                                 @else
                                     <div style="height: 84px;"></div>

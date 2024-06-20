@@ -37,6 +37,15 @@
                 <a href="{{ route('events.show', [ 'event'=>$event->id ])}}" 
                   class="btn text-dark">
                   <i class="fas fa-eye"></i>
+                  <form style="display: inline;"
+                  action="{{ route('events.destroy', [ 'event' => $event->id ]) }}"
+                  method="POST">
+                  @csrf
+                  @method('DELETE')
+                  <button type="submit" class="btn btn-danger btn-sm">
+                    <i class="fas fa-trash"></i>
+                  </button>
+                </form>
                 </a>
             </td>
         </tr>

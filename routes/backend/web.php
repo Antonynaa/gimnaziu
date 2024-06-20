@@ -7,6 +7,7 @@
     use App\Http\Controllers\TeamController;
     use App\Http\Controllers\LawController;
     use App\Http\Controllers\SectionController;
+    use App\Http\Controllers\MessageController;
     use App\Http\Controllers\EventCategoryController;
  
     Route::middleware('auth')->group(function() {
@@ -17,5 +18,6 @@
         Route::resource('teams', TeamController::class);
         Route::resource('laws', LawController::class);
         Route::resource('sections', SectionController::class);
+        Route::resource('messages', MessageController::class);
         Route::resource('event-category', EventCategoryController::class);
     });

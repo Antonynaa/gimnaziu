@@ -40,18 +40,21 @@ class EventRepository implements EventInterface
     public function save($event)
     {
         $extension = $event['image']->getClientOriginalExtension();
-        $fileName = $event['image']->getClientOriginalName();
+        $fileName = md5(bcrypt(date('l jS \of F Y h:i:s A'))) . '.' . $extension;
+
         $data = new Event();
         $data->title = $event['title'];
         $data->description = $event['description'];
         $data->body = $event['body'];
         $data->autor = $event['autor'];
         $data->event_category_id = $event['event_category_id'];
-        $data->image = md5(bcrypt(date('l jS \of F Y h:i:s A'))).'.'.$extension;
+        $data->image = $fileName;
         $data->save();
-        Image::make($event['image'])
-            ->fit(1366, 768)
-            ->save(public_path(env('UPLOADS_EVENT')) . $data->image);
+
+        // Salvarea fișierului de imagine fără procesare
+        $destinationPath = public_path(env('UPLOADS_EVENT'));
+        $event['image']->move($destinationPath, $fileName);
+
         return back();
     }
 

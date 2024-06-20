@@ -10,6 +10,9 @@
         $eventLink = "active";
     }
 @endphp
+@section('meta_description', 'Gimnaziu Iaroslav Gașek')
+@section('meta_keywords', 'Gimnaziu Iaroslav Gașek Holuboaia, școala Holuboaia, Iaroslav Gașek . (isset($settings) ? $settings->str : ')
+
 @section('content')
 
     <!-- Page Header End -->
@@ -19,13 +22,12 @@
     <!-- Blog Start -->
     <div class="container-fluid pt-5">
         <div class="container">
-            <div class="text-center pb-2">
-                <p class="section-title px-5"><span class="px-2">Evenimente</span></p>
+            <div class="text-center pb-2  wow fadeInUp" data-wow-delay="0.1s"> 
                 <h1 class="mb-4">Cele mai recente activități</h1>
             </div>
             <div class="row pb-3">
             @forelse ($events as $event)
-                    <div class="col-lg-4 mb-4">
+                    <div class="col-lg-4 mb-4 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="card border-0 shadow-sm mb-2">
                             <img class="card-img-top mb-2" src="{{ asset(env('UPLOADS_EVENT').$event->image) }}" alt="">
                             <div class="card-body bg-light text-center p-4">

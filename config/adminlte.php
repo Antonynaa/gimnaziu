@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => env('APP_NAME', 'AdminLTE 3'),
+    'title' => env('APP_NAME', 'Admin'),
     'title_prefix' => '',
     'title_postfix' => '',
 
@@ -365,20 +365,14 @@ return [
             ], 
         ],
         [
-            'text'      => 'Meniul',
-            'icon'      => 'fas fa-utensils',
-            'submenu'   => [
-                [
-                    'text' => 'Gestioneaza',
-                    'url'  => 'menus',
-                    'icon'      => 'fas fa-plus',
-                    'icon_color' => 'yellow',
-                ],
-            ],
+            'text'      => 'Mesaje',
+            'url'       => 'messages',
+            'icon'      => 'fas fa-fw fa-user', 
+        ],
         ],
         ['header' => 'account_settings'],
         [ 
-            'text' => 'Profilul gradinita',
+            'text' => 'Profilul gimnaziu',
             'url'  => 'settings',
             'icon' => 'fas fa-fw fa-user',
         ],
@@ -392,7 +386,6 @@ return [
             'url'  => 'change_password',
             'icon' => 'fas fa-fw fa-lock',
         ],
-    ],    
     /*
     |--------------------------------------------------------------------------
     | Menu Filters

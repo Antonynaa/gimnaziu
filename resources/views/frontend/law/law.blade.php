@@ -8,6 +8,9 @@
         $about = "active";
     }
 @endphp
+@section('meta_description', 'Gimnaziu Iaroslav Gașek')
+@section('meta_keywords', 'Gimnaziu Iaroslav Gașek Holuboaia, școala Holuboaia, Iaroslav Gașek . (isset($settings) ? $settings->str : ')
+
 
 @section('content')
     <!-- Page Header End -->

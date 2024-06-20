@@ -55,7 +55,7 @@
                         <a href="#" class="nav-link dropdown-toggle  {{ $about ?? "" }}" data-bs-toggle="dropdown"
                             aria-expanded="false">Despre noi</a>
                         <div class="dropdown-menu rounded-0 rounded-bottom border-0 shadow-sm m-0">
-                            <a href="{{ route('about.index')}}" class="dropdown-item">Despre noi</a>
+                            <a href="{{ route('about.index')}}" class="dropdown-item">Informatii</a>
                             <a href="{{ route('law.index')}}" class="dropdown-item">Legistația</a>
                         </div>
                     </div>
@@ -79,50 +79,48 @@
                 <div class="col-lg-4 col-md-6">
                     <h3 class="text-white mb-4">Aici ne găsiți</h3>
                     <p class="mb-2">Satul Holuboaia, mun. Cahul</p>
-                    <p class="mb-2">
-                        <i class="fa fa-map-marker-alt me-3"></i>
-                        {{ $settings ? $settings->str : 'Default address' }}
-                    </p>
-                    <p class="mb-2">
-                        <i class="fa fa-phone-alt me-3"></i>
-                        {{ $settings ? $settings->tf : 'Default phone' }}
-                    </p>
-                    <p class="mb-2">
-                        <i class="fa fa-envelope me-3"></i>
-                        {{ $settings ? $settings->email : 'Default email' }}
-                    </p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $settings->str ?? "" }}</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>{{ $settings->tf ?? "" }}</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>{{ $settings->email ?? "" }}</p>  
                     <div class="d-flex pt-2">
-    @isset($settings)
-        @isset($settings->twitter)
-            <a class="btn btn-outline-light btn-social" href="{{ url($settings->twitter) }}" target="_blank">
-                <i class="fab fa-twitter"></i>
-            </a>
-        @endisset
-
-        @isset($settings->facebook)
-            <a class="btn btn-outline-light btn-social" href="{{ url($settings->facebook) }}" target="_blank">
-                <i class="fab fa-facebook-f"></i>
-            </a>
-        @endisset
-
-        @isset($settings->youtube)
-            <a class="btn btn-outline-light btn-social" href="{{ url($settings->youtube) }}" target="_blank">
-                <i class="fab fa-youtube"></i>
-            </a>
-        @endisset
-    @else
-        <!-- Afișează un mesaj sau butoane implicite dacă `$settings` este `null` -->
-        <a class="btn btn-outline-light btn-social" href="#" target="_blank">
-            <i class="fab fa-twitter"></i>
-        </a>
-        <a class="btn btn-outline-light btn-social" href="#" target="_blank">
-            <i class="fab fa-facebook-f"></i>
-        </a>
-        <a class="btn btn-outline-light btn-social" href="#" target="_blank">
-            <i class="fab fa-youtube"></i>
-        </a>
-    @endisset
-</div>
+                        @if ($settings !== null)
+                            @if ($settings->twitter)
+                                <a class="btn btn-outline-light btn-social" href="{{ url($settings->twitter) }}"
+                                    target="_blanck">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                            @endif
+                            @if ($settings->facebook)
+                                <a class="btn btn-outline-light btn-social" href="{{ url($settings->facebook) }}"
+                                    target="_blanck">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                            @endif
+                            @if ($settings->youtube)
+                                <a class="btn btn-outline-light btn-social" href="{{ url($settings->youtube) }}"
+                                    target="_blanck">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                            @endif
+                            @if ($settings->linkedin)
+                                <a class="btn btn-outline-light btn-social" href="{{ url($settings->linkedin) }}"
+                                    target="_blanck">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            @endif
+                        @else
+                        <!-- Afișează un mesaj sau butoane implicite dacă `$settings` este `null`  
+                        <a class="btn btn-outline-light btn-social" href="#" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-outline-light btn-social" href="#" target="_blank">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a class="btn btn-outline-light btn-social" href="#" target="_blank">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        @endisset -->
+                    </div>
                 </div>
                 <div class="col-lg-4 col-md-6">
                     <h3 class="text-white mb-4">Scurtaturi</h3>

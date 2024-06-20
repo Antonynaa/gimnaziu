@@ -26,8 +26,9 @@ class SlideshowController extends Controller
     public function index()
     { 
         $slideshows = resolve(SlideshowRepository::class)->getAll();
-        return view('backend.homepage.index')
-            ->with('slideshows', $slideshows);
+        return view('backend.homepage.index', [
+            'slideshows' => $slideshows
+        ]);
     }
 
     /**

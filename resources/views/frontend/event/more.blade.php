@@ -7,6 +7,9 @@
         $eventLink = "active";
     }
 @endphp
+@section('meta_description', 'Gimnaziu Iaroslav Gașek')
+@section('meta_keywords', 'Gimnaziu Iaroslav Gașek Holuboaia, școala Holuboaia, Iaroslav Gașek . (isset($settings) ? $settings->str : ')
+
 @section('content')
     <!-- Page Header End -->
     @include( 'frontend.partial.header', ['data' => 'Eveniment', 'event' => $event] )
@@ -32,20 +35,6 @@
             </div>
 
             <div class="col-lg-4 mt-5 mt-lg-0">
-
-                <!-- Category List -->
-                <div class="mb-5">
-                    <h2 class="mb-4">Categorii</h2>
-                    <ul class="list-group list-group-flush">
-                        @forelse ($categories as $categorie)
-                            <li class="list-group-item d-flex justify-content-between align-items-center px-0">
-                                <a href="{{ route('event.category', [ 'category' => Str::slug( $categorie->nume ."-". $categorie->id) ]) }}">{{ $categorie->nume }}</a>
-                            </li>
-                        @empty
-                            <p>Nu sunt evenimente în baza de date</p>
-                        @endforelse
-                    </ul>
-                </div>
 
                 <!-- Recent Post -->
                 <div class="mb-5">
